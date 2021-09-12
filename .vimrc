@@ -58,22 +58,30 @@ nnoremap <leader>na :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>te :wincmd v<bar> :wincmd l <bar> :terminal<CR><C-w><C-w> :q<bar><CR>
 " replace a word
 nnoremap <leader>re :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
+" creating windows
+"nnoremap <> :wincmd v<bar><CR>
+"nnoremap <> :wincmd S<bar><CR>
+" switching between windows
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 " switch between tabs faster and simple.
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
+nnoremap <Space>h :tabprevious<CR>
+nnoremap <Space>l :tabnext<CR>
 " create and open a new tab.
-nnoremap <C-t> :tabnew<CR>
+nnoremap <Space>t :tabnew<CR>
 " go to tab by number.
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<CR>
+noremap <Space>1 1gt
+noremap <Space>2 2gt
+noremap <Space>3 3gt
+noremap <Space>4 4gt
+noremap <Space>5 5gt
+noremap <Space>6 6gt
+noremap <Space>7 7gt
+noremap <Space>8 8gt
+noremap <Space>9 9gt
+noremap <Space>0 :tablast<CR>
 
 
 "+++++[VIM PLUGINS]+++++
@@ -81,8 +89,10 @@ noremap <leader>0 :tablast<CR>
 call plug#begin('~/.vim/plugged')
 " plugins
 " autocomplition
-Plug 'https://github.com/sainnhe/sonokai.git'
 Plug 'https://github.com/ycm-core/YouCompleteMe.git'
+" themes
+Plug 'https://github.com/sainnhe/sonokai.git'
+Plug 'https://github.com/morhetz/gruvbox.git'
 " syntax for Solidity language
 Plug 'thesis/vim-solidity'
 " nerdtree
@@ -108,9 +118,18 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 " pen the existing NERDTree on each new tab.
 "autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-" ++ [sonokai theme] ++
+" ++ [theme] ++
 " setting up installed theme for vim
+" Important!!
+"if has('termguicolors')
+"  set termguicolors
+"endif
+" The configuration options should be placed before `colorscheme sonokai`.
+let g:sonokai_style = 'espresso'
+let g:sonokai_enable_italic = 0
+let g:sonokai_disable_italic_comment = 0
 colorscheme sonokai
+"set background=dark
 
 " ++ [lightline] ++
 " display the line
