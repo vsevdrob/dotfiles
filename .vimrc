@@ -58,6 +58,8 @@ nnoremap <leader>na :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>te :wincmd v<bar> :wincmd l <bar> :terminal<CR><C-w><C-w> :q<bar><CR>
 " replace a word
 nnoremap <leader>re :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
+" copy to system
+vnoremap <C-c> "*y
 " creating windows
 "nnoremap <> :wincmd v<bar><CR>
 "nnoremap <> :wincmd S<bar><CR>
@@ -93,12 +95,22 @@ Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 " themes
 Plug 'https://github.com/sainnhe/sonokai.git'
 Plug 'https://github.com/morhetz/gruvbox.git'
+"Plug 'https://github.com/arcticicestudio/nord-vim.git'
+"Plug 'edkolev/tmuxline.vim'
 " syntax for Solidity language
 Plug 'thesis/vim-solidity'
+" syntax for go language
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " nerdtree
 Plug 'preservim/nerdtree'
 " lightline
 Plug 'itchyny/lightline.vim'
+" vim-airline
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+" fzf 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug '/usr/local/opt/fzf'
 " initialize plugin system
 call plug#end()
 
@@ -128,8 +140,8 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 let g:sonokai_style = 'espresso'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 0
-colorscheme sonokai
-"set background=dark
+colorscheme gruvbox
+set background=dark
 
 " ++ [lightline] ++
 " display the line
@@ -138,5 +150,14 @@ set laststatus=2
 set noshowmode
 " colorscheme for lightline
 let g:lightline = {
-      \ 'colorscheme': 'sonokai',
+      \ 'colorscheme': 'gruvbox',
       \ }
+"let g:airline_theme='gruvbox'
+"let g:airline#extensions#tabline#enabled = 1
+
+"let g:tmuxline_theme = 'gruvbox'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '>'
+
+" fzf
+set rtp+=/usr/local/opt/fzf
