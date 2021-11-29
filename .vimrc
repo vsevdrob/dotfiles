@@ -59,7 +59,7 @@ nnoremap <leader>te :wincmd v<bar> :wincmd l <bar> :terminal<CR><C-w><C-w> :q<ba
 " replace a word
 nnoremap <leader>re :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
 " copy to system
-vnoremap <C-c> "*y
+"vnoremap <C-c> "*y
 " creating windows
 "nnoremap <> :wincmd v<bar><CR>
 "nnoremap <> :wincmd S<bar><CR>
