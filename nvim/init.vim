@@ -1,10 +1,6 @@
 
-
-
 " set up default <leader> key
 let mapleader = " "
-
-
 
 "+++++[VIM KEY MAPPING]+++++
 " file navigation column
@@ -44,7 +40,9 @@ noremap <Space>0 :tablast<CR>
 "+++++[VIM PLUGINS]+++++
 " specify a directory for plugins
 "
-" RUN :so % AND THEN :PlugInstall
+" (1) Make sure that you have vim-plug
+" https://github.com/junegunn/vim-plug
+" (2) RUN :so % AND THEN :PlugInstall
 
 call plug#begin('~/.vim/plugged')
 " themes
