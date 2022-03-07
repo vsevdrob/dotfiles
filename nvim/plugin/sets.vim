@@ -8,10 +8,23 @@ set scrolloff=12
 set tabstop=4
 " indent when moving to the next line while writing code
 set autoindent
+" if non-zero, number of spaces to insert for a <Tab> 
+set softtabstop=4
 " expand tabs into spaces 
 set expandtab
+" expand <Tab> to spaces in Insert mode
+set expandtab
+" do clever autoindenting
+set smartindent
 " while using in normal mode the <shift>>> or <shift><< commands, shift lines by 4 paces
 set shiftwidth=4
+" specific to .js file format
+" RUN :set ft? (in order to get the filetype name)
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+autocmd FileType scss setl iskeyword+=@-@
+"autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
 " show a visual line under the cursor's current line
 "set cursorline
 " show the matching part of the pair for [] {} and ()
@@ -26,8 +39,6 @@ set hidden
 set incsearch
 " show (partial) command in the last line of the screen. 
 set showcmd
-" if non-zero, number of spaces to insert for a <Tab> 
-set softtabstop=4
 " set gui cursor from bar to block
 set guicursor= 
 " enable mouse
@@ -38,12 +49,6 @@ set autoread
 set nofoldenable
 
 
-" expand <Tab> to spaces in Insert mode
-set expandtab
-
-
-" do clever autoindenting
-set smartindent
 
 
 " disable screen blinking
